@@ -14,6 +14,12 @@ class Subject:
     def add_grade(self, category, grade):
         self.grades[category][0].append(grade)
 
+    def return_grades(self, category):
+        return self.grades[category][0]
+
+    def return_grade_categories(self):
+        return [i for i in self.grades]
+
 
 class Grade:
     def __init__(self, grade, name, date=str(str_date.now())):
