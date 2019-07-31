@@ -1,4 +1,5 @@
 def user_input():
+    print("Hi User, \n do you want to edit your grades?")
     todo = input("Ok, do you want to see them or to edit them? [see/edit]\n")
     if todo == "see":
         print("Which subject do you want to know the information?")
@@ -9,15 +10,30 @@ def user_input():
         user_add = input()
         if user_add == "subject":
             subject = input("Which subject do you want to add? \n")
-            return "input", subject
+            main_subject = input("Is this subject a main subject (Hauptfach)[y/n]? \n")
+            if main_subject == 'y':
+                main_subject = True
+            elif main_subject == 'n':
+                main_subject = False
+            oral_exam = input("Will there be an oral exam in this subject [y/n]? \n")
+            if oral_exam == 'y':
+                oral_exam = True
+            elif oral_exam == 'n':
+                oral_exam = False
+            return "input", "subject", subject, main_subject, oral_exam
         elif user_add == "category":
             subject = input("To which subject do you want to add the category? \n")
             category = input("Which category do you want to add? \n")
             rating = float(input("Rating? \n"))
-            return "input", subject, category, rating
+            return "input", "category", subject, category, rating
         elif user_add == "grade":
             subject = input("To which subject do you want to add the grade? \n")
             category = input("To which category do you want to add it? \n")
             grade = input("Grade? \n")
             grade_name = input("What's the name of the grade? \n")
-            return "input", subject, category, grade, grade_name
+            return "input", "grade", subject, category, grade, grade_name
+
+
+def user_output(i):
+    # just filled with some standard output, has to be filled further
+    print(i)
