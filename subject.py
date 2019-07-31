@@ -26,3 +26,10 @@ class Grade:
         self.grade = grade
         self.name = name
         self.date = date
+
+
+def get_subject(liste, name):
+    for subject in liste:
+        if subject.name == name:
+            return subject
+    return None

@@ -10,15 +10,15 @@ def user_input():
         user_add = input()
         if user_add == "subject":
             subject = input("Which subject do you want to add? \n")
-            return "input", subject
+            return "input", "subject", subject
         elif user_add == "category":
             subject = input("To which subject do you want to add the category? \n")
             category = input("Which category do you want to add? \n")
             rating = float(input("Rating? \n"))
-            return "input", subject, category, rating
+            return "input", "category", subject, category, rating
         elif user_add == "grade":
             subject = input("To which subject do you want to add the grade? \n")
             category = input("To which category do you want to add it? \n")
             grade = input("Grade? \n")
             grade_name = input("What's the name of the grade? \n")
-            return "input", subject, category, grade, grade_name
+            return "input", "grade", subject, category, grade, grade_name
