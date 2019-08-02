@@ -1,5 +1,5 @@
 def user_input():
-    todo = input("Ok, do you want to see them or to edit them [see/edit]?\n")
+    todo = input("Ok, do you want to see them or to edit them [see/edit/exit]?\n")
     if todo == "see":
         print("Which subject do you want to know the information?")
         subject = input()
@@ -31,6 +31,8 @@ def user_input():
             grade = input("Grade? \n")
             grade_name = input("What's the name of the grade? \n")
             return "input", "grade", subject, category, grade, grade_name
+    elif todo == "exit":
+        return "exit"
 
 
 def user_output(subject, categories, average, average_subject):
@@ -42,6 +44,7 @@ def user_output(subject, categories, average, average_subject):
             string += str(grade) + ", "
         print(string + "\n")
         print("The average of {} is {}.".format(subject, average_subject))
+
 
 def password():
     print("What is your password?")
