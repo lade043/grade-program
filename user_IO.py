@@ -1,15 +1,15 @@
 def user_input():
-    todo = input("Ok, do you want to see them or to edit them? [see/edit]\n")
+    todo = input("Ok, do you want to see them or to edit them [see/edit]?\n")
     if todo == "see":
         print("Which subject do you want to know the information?")
         subject = input()
         return "output", subject
     elif todo == "edit":
-        print("Do you want to add a subject, a category or a grade? [subject/category/grade]")
+        print("Do you want to add a subject, a category or a grade [subject/category/grade]?")
         user_add = input()
         if user_add == "subject":
             subject = input("Which subject do you want to add? \n")
-            main_subject = input("Is this subject a main subject (Hauptfach)[y/n]? \n")
+            main_subject = input("Is this subject a main subject [y/n]? \n")
             if main_subject == 'y':
                 main_subject = True
             elif main_subject == 'n':
@@ -34,9 +34,9 @@ def user_input():
 
 
 def user_output(subject, categories, average):
-    print("\n\n In the subject [] are the following categories:".format(subject))
+    print("\n\n In the subject {} are the following categories:".format(subject))
     for counter, category in enumerate(categories):
-        print("The average in [] is [] with these grades:".format(category, average[counter]))
-        for grade in category:
+        print("The average in {} is {} with these grades:".format(category, average[counter]))
+        for grade in categories[category]:
             print(grade)
         print("\n")
