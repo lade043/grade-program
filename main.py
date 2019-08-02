@@ -18,7 +18,7 @@ try:
                 subjects.append(subject.Subject(user_input[2], user_input[3], user_input[4]))
         elif user_input[0] == "output":
             subject_get = subject.get_subject(subjects, user_input[1])
-            user_IO.user_output(subject_get.)
+            user_IO.user_output(subject_get.return_average_subject)
     raise SystemError
 
 except Exception as e:
