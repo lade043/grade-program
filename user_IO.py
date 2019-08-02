@@ -33,12 +33,12 @@ def user_input():
             return "input", "grade", subject, category, grade, grade_name
 
 
-def user_output(subject, categories, average):
+def user_output(subject, categories, average, average_subject):
     print("\n\n In the subject {} are the following categories:".format(subject))
     for counter, category in enumerate(categories):
         print("The average in {} is {} with these grades:".format(category, average[counter]))
         string = ""
         for grade in categories[category]:
             string += str(grade) + ", "
-
         print(string + "\n")
+        print("The average of {} is {}.".format(subject, average_subject))
