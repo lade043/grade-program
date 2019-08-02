@@ -44,7 +44,10 @@ try:
             user_IO.user_output(subject_get.return_average_subject)
         elif input_or_output == "exit":
             break
-    raise SystemError
+    with open(filepath, 'w') as file:
+        _list = [serializer.serialize(_subject) for _subject in subjects]
+        string = encryption.encrypt(password, str(_list))
+        file.write(string)
 
 except Exception as e:
     print('ERROR' + str(e))
