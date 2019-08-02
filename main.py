@@ -29,8 +29,11 @@ try:
         elif input_or_output == "output":
             _subject = user_input[1]
             subject_get = subject.get_subject(subjects, _subject)
-            user_IO.user_output(subject_get.return_average_subject)
+            user_IO.user_output(subject_get.name, subject_get.return_grade_categories(),
+                                [subject_get.return_average_of_category(i) for i in subject_get.return_grade_categories()],
+                                subject_get.return_average_of_subject())
     raise SystemError
 
 except Exception as e:
     print('ERROR' + str(e))
+    raise
