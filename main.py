@@ -6,14 +6,7 @@ import exceptions
 import os
 
 subjects = []
-filepath = "/data/user.grades"
 try:
-    password = user_IO.password()
-    if os.path.isfile(filepath):
-        with open(filepath, 'r') as file:
-            string = encryption.decrypt(password, file.read())
-            serializer.deserialize(string)
-
     while True:
         try:
             user_input = user_IO.user_input()
@@ -43,7 +36,9 @@ try:
             elif input_or_output == "output":
                 _subject = user_input[1]
                 subject_get = subject.get_subject(subjects, _subject)
-                user_IO.user_output(subject_get.return_average_subject)
+                user_IO.user_output(subject_get.name, subject_get.return_grade_categories(),
+                                [subject_get.return_average_of_category(i) for i in subject_get.return_grade_categories()],
+                                subject_get.return_average_of_subject())
             elif input_or_output == "exit":
                 break
             else:
@@ -53,10 +48,8 @@ try:
                 exceptions.SubjectNotExistingException, exceptions.WrongCaseException) as e:
             user_IO.exception_raised(e)
 
-    with open(filepath, 'w') as file:
-        _list = [serializer.serialize(_subject) for _subject in subjects]
-        string = encryption.encrypt(password, str(_list))
-        file.write(string)
+    
 
 except Exception as e:
     print('ERROR' + str(e))
+    raise

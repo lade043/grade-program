@@ -49,15 +49,10 @@ def user_output(subject, categories, average, average_subject):
     for counter, category in enumerate(categories):
         print("The average in {} is {} with these grades:".format(category, average[counter]))
         string = ""
-        for grade in categories[category]:
-            string += str(grade) + ", "
+        for grade in categories[category][0]:
+            string += str(grade.grade) + ", "
         print(string + "\n")
         print("The average of {} is {}.".format(subject, average_subject))
-
-
-def password():
-    print("What is your password?")
-    return input()
 
 
 def exception_raised(exception):

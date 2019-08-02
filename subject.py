@@ -19,17 +19,18 @@ class Subject:
         return self.grades[category][0]
 
     def return_grade_categories(self):  # Return all categories
-        return [i for i in self.grades]
+        return self.grades
 
     def return_average_of_category(self, category):  # Return average of one categorie
-        return sum(self.grades[category][0]) / len(self.grades[category][0])
+        _list = [int(i.grade) for i in self.grades[category][0]]
+        return sum(_list) / len(self.grades[category][0])
 
     def return_average_of_subject(self):
         rating_sum = 0
         grade_sum = 0
         for i in self.grades:
             rating_sum += self.grades[i][1]
-            grade_sum += self.return_average_of_category(i)
+            grade_sum += self.return_average_of_category(i)*self.grades[i][1]
         return grade_sum / rating_sum
 
     def category_existing(self, category):
