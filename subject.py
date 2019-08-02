@@ -14,13 +14,13 @@ class Subject:
     def add_grade(self, category, grade):
         self.grades[category][0].append(grade)
 
-    def return_grades(self, category):
+    def return_grades(self, category):  # Return all grades in one category
         return self.grades[category][0]
 
-    def return_grade_categories(self):
+    def return_grade_categories(self):  # Return all categories
         return [i for i in self.grades]
 
-    def return_average_of_category(self, category):
+    def return_average_of_category(self, category):  # Return average of one categorie
         return sum(self.grades[category][0]) / len(self.grades[category][0])
 
     def return_average_of_subject(self):

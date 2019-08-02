@@ -1,16 +1,15 @@
 def user_input():
-    print("Hi User, \n do you want to edit your grades?")
-    todo = input("Ok, do you want to see them or to edit them? [see/edit]\n")
+    todo = input("Ok, do you want to see them or to edit them [see/edit]?\n")
     if todo == "see":
         print("Which subject do you want to know the information?")
         subject = input()
         return "output", subject
     elif todo == "edit":
-        print("Do you want to add a subject, a category or a grade? [subject/category/grade]")
+        print("Do you want to add a subject, a category or a grade [subject/category/grade]?")
         user_add = input()
         if user_add == "subject":
             subject = input("Which subject do you want to add? \n")
-            main_subject = input("Is this subject a main subject (Hauptfach)[y/n]? \n")
+            main_subject = input("Is this subject a main subject [y/n]? \n")
             if main_subject == 'y':
                 main_subject = True
             elif main_subject == 'n':
@@ -34,6 +33,12 @@ def user_input():
             return "input", "grade", subject, category, grade, grade_name
 
 
-def user_output(i):
-    # just filled with some standard output, has to be filled further
-    print(i)
+def user_output(subject, categories, average, average_subject):
+    print("\n\n In the subject {} are the following categories:".format(subject))
+    for counter, category in enumerate(categories):
+        print("The average in {} is {} with these grades:".format(category, average[counter]))
+        string = ""
+        for grade in categories[category]:
+            string += str(grade) + ", "
+        print(string + "\n")
+        print("The average of {} is {}.".format(subject, average_subject))
