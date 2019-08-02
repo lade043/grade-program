@@ -43,6 +43,7 @@ def user_output(subject, categories, average, average_subject):
         print(string + "\n")
         print("The average of {} is {}.".format(subject, average_subject))
 
+
 def password():
     print("What is your password?")
     return input()
