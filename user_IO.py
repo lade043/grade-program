@@ -40,4 +40,5 @@ def user_output(subject, categories, average):
         string = ""
         for grade in categories[category]:
             string += str(grade) + ", "
-        print("\n")
+
+        print(string + "\n")
