@@ -1,4 +1,5 @@
 from datetime import datetime as str_date
+from exceptions import SubjectNotExistingException, CategoryNotExistingException
 
 
 class Subject:
@@ -32,6 +33,11 @@ class Subject:
             grade_sum += self.return_average_of_category(i)*self.grades[i][1]
         return grade_sum / rating_sum
 
+    def category_existing(self, category):
+        if category in self.grades:
+            return True
+        raise CategoryNotExistingException
+
 
 class Grade:
     def __init__(self, grade, name, date=str(str_date.now())):
@@ -44,4 +50,4 @@ def get_subject(liste, name):
     for subject in liste:
         if subject.name == name:
             return subject
-    return None
+    raise SubjectNotExistingException
