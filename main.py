@@ -30,6 +30,8 @@ try:
             _subject = user_input[1]
             subject_get = subject.get_subject(subjects, _subject)
             user_IO.user_output(subject_get.return_average_subject)
+        elif input_or_output == "exit":
+            break
     raise SystemError
 
 except Exception as e:
