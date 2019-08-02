@@ -37,6 +37,7 @@ def user_output(subject, categories, average):
     print("\n\n In the subject {} are the following categories:".format(subject))
     for counter, category in enumerate(categories):
         print("The average in {} is {} with these grades:".format(category, average[counter]))
+        string = ""
         for grade in categories[category]:
-            print(grade)
+            string += str(grade) + ", "
         print("\n")
