@@ -1,8 +1,20 @@
 import subject
 import user_IO
+import serializer
+import encryption
+import os
 
 subjects = []
+filepath = "/data/user.grades"
 try:
+    password = user_IO.password()
+    if os.path.isfile(filepath):
+        with open(filepath, 'r') as file:
+            string = encryption.decrypt(password, file.read())
+            serializer.deserialize(string)
+
+
+
     while True:
         user_input = user_IO.user_input()
         input_or_output = user_input[0]
