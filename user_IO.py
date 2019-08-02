@@ -1,4 +1,5 @@
 def user_input():
+    print("Hi User, \n do you want to edit your grades?")
     todo = input("Ok, do you want to see them or to edit them? [see/edit]\n")
     if todo == "see":
         print("Which subject do you want to know the information?")
